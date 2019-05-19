@@ -1,0 +1,2 @@
+@o = Tab.all
+puts @o.first.name

@@ -1,0 +1,15 @@
+current directory: /tmp/bundler20190419-4320-dkxus1bindex-0.7.0/gems/bindex-0.7.0/ext/skiptrace
+/home/marie/.rvm/rubies/ruby-2.6.2/bin/ruby -I /home/marie/.rvm/rubies/ruby-2.6.2/lib/ruby/2.6.0 -r ./siteconf20190419-4320-v65obz.rb extconf.rb
+creating Makefile
+
+current directory: /tmp/bundler20190419-4320-dkxus1bindex-0.7.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /tmp/bundler20190419-4320-dkxus1bindex-0.7.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/cruby.so
+
+current directory: /tmp/bundler20190419-4320-dkxus1bindex-0.7.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20190419-4320-1q2oprq/skiptrace

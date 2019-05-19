@@ -1,0 +1,27 @@
+ 
+#header, #footer {
+    height:200px;
+    border: 1px solid #eee;
+    background:#eee;
+}
+#sidebar {
+    left:0;
+    width: 100px;
+    height: 500px;
+    border: 1px solid #aaa;
+    background: #aaa;
+    float: left;
+}
+.post {
+    height: 1000px;
+}
+#footer2 {
+  position:fixed;
+  width:100px;
+  height:100px;
+  left:0;
+  bottom:0;
+  background-color:pink;
+}
+
+
