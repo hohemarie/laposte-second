@@ -1,0 +1,2 @@
+class GijugController < ApplicationController
+end

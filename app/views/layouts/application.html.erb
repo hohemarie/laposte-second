@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta title="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag "application" %> 
+    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag controller_name %>
+    <%= javascript_include_tag controller_name %>
+    <%= csrf_meta_tags %>
+    <!-- Bootstrap CSS -->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <!--<div id="container">-->
+      <!--<div class="fixed"></div>
+      <div class="contenu"></div>
+    </div>-->
+    <!--<ul id="menu-item"> 
+      <li class="menu-subitem">
+        <a href="#home">Item 1</a>
+      </li>
+      <li class="menu-subitem">
+        <a href="#index">Item 2</a>
+      </li>
+      <li class="menu-subitem">
+        <a href="#controller">Item 3</a>
+      </li>
+    </ul>-->
+    <!--<ul class="nav nav-tabs" style="border:1px solid blue; margin-left: 8em;">
+    <%tabs = Tab.all%>
+    <%count = 0%>
+    <%#if tabs.length >= 7%>
+    <%7.times do%>
+      <%count += 1%>
+      <%tabs.each do |tab|%>
+        <%if tab.column == count%>
+          <%if tab.class_of_item == "dropdown-item"%>
+            <a class="dropdown-item" href="#"><%=tab.title%></a>
+          <%end%>
+          <%if tab.class_of_item == "dropdown-header"%>
+            <a class="dropdown-header" href="#"><%=tab.title%></a>
+          <%end%>
+          <%if tab.class_of_item == "nav-link"%>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><%=tab.title%></a>
+            </li>  
+          <%elsif tab.class_of_item == "dropdown-toggle"%>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= tab.title %></a>
+              <div class="dropdown-menu">
+          <%end%>
+         
+          
+        <%end%> 
+      <%end%>
+    <%end%>
+            </li>
+    </ul>-->
+    <!--</div>-->
+        <%= yield %>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
+<!--    <script src="js/scripts.js"></script>-->
+<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+  </body>
+</html>

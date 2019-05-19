@@ -1,0 +1,154 @@
+#header {
+    height:50px;
+    border: 1px solid #eee;
+    background:#eee;
+    left:60px;
+    float:right;
+    right:0;
+    top:0;
+    display:flex;
+    flex-direction:row;
+    position:fixed;
+}
+.popover {
+  //max-width: 190%;
+  //min-width:160%;
+  //min-height:110%;
+  //overflow-y:auto;
+  //z-index:1000;
+  //right:0;
+  //float:right;
+  //margin-left:-150px;
+  //position:absolute;
+  //margin-right:-150px;
+  margin-top:50px;
+  //width:90vw;
+  //height:90vh;
+  //left:0;
+  //float:left;
+  // vw, vh
+  //1vw = 1% of viewport width
+  //1vh = 1% of viewport height 
+}
+.popover > div > * {
+  font-size:5pt;
+}
+#myPopoverContent {
+  background-color:yellow;
+  color:black;
+  border:5pc solid blue; 
+}
+.button {
+  background-color:#ccc;
+  border-radius:0px;
+  height:100%;
+}
+#footer {
+  height:200px;
+  border:1px solid #eee;
+  background:#eee;
+}
+#sidebar {
+  left:0;
+  justify-content:space-evenly;
+  width: 50px;
+  height:500px;
+  border: 1px solid #aaa;
+  background: #aaa;
+  position:fixed;
+  float:left;
+  top:0;
+}
+#sidebar-header {
+  height:60px;
+}
+#sidebar-header > .logo {
+  height:80%;
+  width:80%;
+}
+#sidebar:hover > #sidebar-header > .logo {
+  width:50%;
+  height:100%;
+}
+#sidebar:hover {
+  width:150px;
+  height:500px;
+  border: 1px solid #aaa;
+  background: #aaa;
+  left:0;
+  justify-content:space-evenly;
+  position:absolute;
+
+}
+#sidebar:hover + #header {
+  position:absolute;
+}
+#sidebar > div {
+  justify-content:space-evenly;
+  text-align:center;
+  vertical-align:center;
+  border:0.5px solid lightgrey;
+  border-left:3px solid yellow;
+}
+#sidebar:hover > #searchbar {
+  width: 155px;
+  background-color:white;
+  border:3px solid blue; 
+}
+#sidebar > div > p {
+  color:red;
+  font-size: 0pt;
+}
+#sidebar:hover > div > p {
+  color:green;
+  font-size:7pt;
+}
+#sidebar > div:not(#searchbar) {
+  background-color: #aaa;
+}
+#sidebar > div:not(#searchbar):not(#sidebar-header):hover {
+  background-color:yellow;
+}
+
+//#sidebar:hover + #sidebar > .div > .p {
+  //display:inline-block;
+  //position:relative;
+  //top: 200px; 
+  //left: 50px;
+  //background-color:pink;
+//}
+  
+//.active-sidebar {
+//  width:200px;
+//  float:left;
+//  left:0;
+  //display:flex;
+  //flex-direction:column;
+//}
+//.active-sidebar:hover {
+  //width:50px;
+  //float:left;
+  //left:0;
+  //display:flex;
+  //flex-direction:column;
+//}
+
+
+.post {
+    height: 1000px;
+}
+#footer2 {
+  position:none;
+  width:0px;
+  height:0px;
+  left:none;
+  background-color:none;
+}
+.logo {
+  width:25px;
+  height:25px;
+}
+#searchbar {
+  width:55px;
+  background-color:blue;
+}

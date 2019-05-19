@@ -1,0 +1,380 @@
+//#carouselExampleIndicators
+//.carousel-indicators
+//.carousel-inner
+//.carousel .slide
+//.carousel-item
+
+//                   //   data-slide //         //
+//.carousel-control-prev
+//.carousel-control-prev-icon
+//.sr-only
+//.carousel-control-next
+//.carousel-control-next-icon
+//.sr-only
+//.carousel-item > img {
+//  width:100%;
+//  height:100%;
+//}
+//.central-container {
+//  display:flex;
+//}
+
+//.carousel .play-button .active {
+//  cursor:default;
+//  pointer-events:auto;
+//}
+//.play-button {
+  //right:0;
+  //z-index:500;
+//  margin-left:500px;
+//  margin-top:500px;
+//}
+.carousel-indicators > li {
+  //border-radius: 50%;
+  //list-style-type:circle;
+  height:10px;
+}
+.carousel-inner {
+  top:0;
+}
+.carousel-item {
+  position:relative;
+  top:0;
+  z-index:0;
+  width:100%;
+  height:100%;
+}
+.carousel-item > img {
+  width:100vw;
+  height:70vh;
+  //position:absolute;
+}
+#pause > img {
+  width:100%;
+  height:100%;
+  vertical-align:baseline;
+  margin:0;
+  left:0;
+  filter:invert(100%);
+}
+#play > img {
+  width:100%;
+  height:100%;
+  filter:invert(100%);
+  margin:0;
+  vertical-align:baseline;
+  left:0;
+}
+/**#popup > * {
+  *margin-left:100px;
+  *left:30px;
+  *z-index:5;
+  *border:10px solid pink;
+*}*/
+.carousel > .carousel-inner {
+  position:relative;
+  border:10px solid orange;
+  width:100%;
+  height:100%;
+}
+.play-button > ol > #pause {
+  width:100%;
+  height:100%;
+  left:0;
+  margin:9;
+  vertical-align:baseline;
+  overflow:visible;
+  position:absolute;
+  z-index:6;
+}
+.play-button > ol > li {
+  padding:0;
+  position:absolute;
+  z-index:6;
+  //vertical-align:bottom;
+  overflow:visible;
+  //margin-left:30%;
+  all: initial;
+}
+.play-button > * {
+  all:unset;
+}
+.play-button > ol > #play {
+  width:100%;
+  height:100%;
+  margin:0;
+  overflow:visible;
+  position:absolute;
+  left:0;
+  z-index:6;
+  vertical-align:baseline;
+}
+.carousel {
+  position:relative;
+  //text-align:right; also tried it with vourel item that has  absolute position
+  //text-align:right; has no effect at the same time as I put the div I wan to move as a block with "display"
+  //set width to 400px here. Later on, set width from the Javascript to set it at the width of the viewport
+  //display:table;
+  //width:100% ;
+}
+.carousel .play-button {
+  cursor:default;
+}
+#main {
+  //position:relative;
+}
+#main > .indicators {
+  //float:left;
+  top:auto;
+  transform:auto;
+  //position:absolute
+}
+#main > .play-button {
+  position:absolute;
+  //Try two sorts: inline-block and block.
+  //display:inline-block;
+  //align-items:center; only works with flexbox
+  //display:block;
+  //float:left;
+  //margin-right:10px;
+  z-index:7;
+  top:92.5%;
+  //left:50%;
+  transform:translate(0,-50%);
+  //display:table-cell;
+  //vertical-align:middle;
+  //text-align:center;
+  //vertical-align:bottom;
+  //margin:0 auto;
+  pointer-events:none;
+}
+
+
+#header {
+    height:50px;
+    border: 1px solid #eee;
+    background:#eee;
+    left:60px;
+    float:right;
+    right:0;
+    top:0;
+    display:flex;
+    flex-direction:row;
+    position:fixed;
+}
+#sidebar > img {
+  width:20px;
+  height:20px;
+}
+#header > button {
+  border:0.5px solid darkgrey;
+  text-align:center;
+  word-wrap:break-word;
+  //position:absolute;
+  height:100%;
+  font-size:5pt;
+}
+#header > div {
+  border:0.5px solid darkgrey;
+  font-size:7pt;
+  margin:auto;
+}
+//.popover.bottom .arrow {
+//    left:90% !important;
+//A
+//}
+/*.tooltip.top-left .tooltip-arrow {
+  bottom: -5px;
+  left: 5px;
+  border-width: 5px 5px 0;
+  border-top-color: black;
+}
+.tooltip.top-right .tooltip-arrow {
+  bottom: -5px;
+  right: 5px;
+  border-width: 5px 5px 0;
+  border-top-color: black;
+}
+.tooltip.bottom-left .tooltip-arrow {
+  top: -5px;
+  left: 5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: black;
+}
+.tooltip.bottom-right .tooltip-arrow {
+  top: -5px;
+  right: 5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: black;
+}*/
+.popover {
+  //top: 71px !important;
+  //left: -125px !important;
+  //max-width:100%;
+  //max-width:500px;
+  //max-height:250px;
+  //float:left;
+  //float:right;
+  //right:-5px;
+  //position:absolute;
+  //max-width: 190%;
+  //min-width:160%;
+  //max-width: none;
+  //min-height:110%;
+  //overflow-y:auto;
+  //z-index:1000;
+  //right:0;
+  //float:right;
+  //margin-left:-150px;
+  //position:absolute;
+  //margin-right:-150px;
+  margin-top:50px;
+  //left:0;
+  //width:90vw;
+  //height:90vh;
+  //left:0;
+  //float:left;
+  // vw, vh
+  //1vw = 1% of viewport width
+  //1vh = 1% of viewport height 
+}
+.header .btn-secondary {
+  font-size:5pt;
+}
+.popover > body {
+  background-color: rgba(0,0,0,0.5);
+}
+#header .popover {
+  z-index:1000;
+  width:400px;
+  height:300px;
+  max-width:none; // Required for popovers wider than 276px (Bootstrap's max-width for popovers)
+}
+.popover > div > * {
+  font-size:7pt;
+}
+button {
+  background-color: lightgray;
+  //padding:15px 32px;
+  //text-align:center;
+  //display:inline-block;
+  width:15%; 
+  font-size: 16px;
+}
+#myPopoverContent {
+  background-color:yellow;
+  color:black;
+  border:5pc solid blue; 
+}
+.btn-secondary {
+  border-radius:0px;
+}
+#footer {
+  height:200px;
+  border:1px solid #eee;
+  background:#eee;
+}
+#sidebar {
+  left:0;
+  justify-content:space-evenly;
+  width: 50px;
+  height:500px;
+  border: 1px solid #aaa;
+  background: #aaa;
+  position:fixed;
+  float:left;
+  top:0;
+}
+#sidebar-header {
+  height:60px;
+}
+#sidebar-header > .logo {
+  height:80%;
+  width:80%;
+}
+#sidebar:hover > #sidebar-header > .logo {
+  width:50%;
+  height:100%;
+}
+#sidebar:hover {
+  width:150px;
+  height:500px;
+  border: 1px solid #aaa;
+  background: #aaa;
+  left:0;
+  justify-content:space-evenly;
+  position:absolute;
+
+}
+#sidebar:hover + #header {
+  position:absolute;
+}
+#sidebar > div {
+  justify-content:space-evenly;
+  text-align:center;
+  vertical-align:center;
+  border:0.5px solid lightgrey;
+  border-left:3px solid yellow;
+}
+#sidebar:hover > #searchbar {
+  width: 155px;
+  background-color:white;
+  border:3px solid blue; 
+}
+#sidebar > div > p {
+  color:red;
+  font-size: 0pt;
+}
+#sidebar:hover > div > p {
+  color:green;
+  font-size:7pt;
+}
+#sidebar > div:not(#searchbar) {
+  background-color: #aaa;
+}
+#sidebar > div:not(#searchbar):not(#sidebar-header):hover {
+  background-color:yellow;
+}
+
+//#sidebar:hover + #sidebar > .div > .p {
+  //display:inline-block;
+  //position:relative;
+  //top: 200px; 
+  //left: 50px;
+  //background-color:pink;
+//}
+  
+//.active-sidebar {
+//  width:200px;
+//  float:left;
+//  left:0;
+  //display:flex;
+  //flex-direction:column;
+//}
+//.active-sidebar:hover {
+  //width:50px;
+  //float:left;
+  //left:0;
+  //display:flex;
+  //flex-direction:column;
+//}
+
+
+.post {
+    height: 1000px;
+}
+#footer2 {
+  position:none;
+  width:0px;
+  height:0px;
+  left:none;
+  background-color:none;
+}
+.logo {
+  width:25px;
+  height:25px;
+}
+#searchbar {
+  width:55px;
+  background-color:blue;
+}

@@ -1,0 +1,283 @@
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href='custom.scss' rel='stylesheet' type='text/css'> 
+  </head>
+  <body>
+    <!--<div style="border:5px solid black;right:0;left:0;top:0;" class="central-container">--><!--<div style="border:5px solid red;" id="popup">-->
+    <div style="border:5px solid purple;width:100%;" id="carouselExampleIndicators" data-interval="10000" class="carousel slide">
+        <!--<div class="carousel-nav">-->
+      <div id="main"> 
+        <div class="indicators" id="indicators">
+          <ol class="carousel-indicators carousel-indicators--round" style="">
+<!--<ol style="border:5px solid black;max-width:20px;max-height:20px;" id="play-button">-->
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+          </ol>
+        </div>`
+        <div id="play-button" class="play-button">
+          <ol>
+            <li style="" aria-hidden="true" id="play"><%= image_tag "icon_pause_video_player.png" %></li>
+            <li style="" aria-hidden="true" id="pause"><%= image_tag "icon_play_video_player.png" %></li>
+          </ol>
+        </div>
+      </div>
+      
+      <!--</div>-->
+      
+      <!--</div>-->
+        <!--</div>-->
+
+      <div style="" class="carousel-inner">
+          
+
+        <div style="" class="carousel-item active">
+          <!--<div style="width:100%;height:100%;" -->
+          <%= image_tag "national_geographic_elephant.jpg"%>
+            <!--<img class="d-block w-100" src="..." alt="First slide">-->
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "wonderbox.jpg" %>
+            <!--<img class="d-block w-100" src="..." alt="First slide">-->
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "header-landing-arts-forains.png" %><!--<img class="d-block w-100" src="..." alt="First slide">-->
+        </div>
+        <div class="carousel-item">
+            <!--<img class="d-block w-100" src="..." alt="First slide">-->
+          <%= image_tag "national_geographic_parrot.jpg" %>
+        </div>
+
+        <div class="carousel-item">
+            <!--<img class="d-block w-100" src="..." alt="Second slide">-->
+          <%=image_tag "stamp_collection_keegan.jpg" %>
+        </div>
+      </div>
+    </div>
+                  <!--.carousel('cycle')-->
+        <!--.carousel('pause')-->
+<!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>-->
+<!--
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>-->
+      <!--</div>-->
+    <!--</div>-->
+<!--<button id="button-a">button</button>-->
+    <!--</div>-->
+    <!--<a href="#" data-toggle="popover" data-html="true" title="Popover Header" data-container="#containerElem" data-content="Some <b>content</b> inside the popover">Toggle popover</a> 
+    </div>-->
+<!--<div style="width:200px;height:300px;border:1px solid black;position:fixed;margin-top:70px;margin-left:70px;display:flex;flex-direction:column;justify-content:space-evenly;"><button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on top
+</button>
+
+<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" style="border:1px solid black;" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on right
+</button>-->
+
+<!--<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on bottom
+</button>
+
+<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on left
+</button> </div>-->
+      <!--<h4 style="margin-top:200px;margin-left:200px;position:fixed;border:1px solid black;" id="top-left" data-toggle="tooltip" data-placement="top-left" data-original-title="Tooltip on top left">Top Left</h4> -->
+    <div id="header">
+      
+      <button type="button" class="btn" data-container="#header" data-toggle="popover" data-trigger="click" style="border-top:3px solid yellow;" data-placement="bottom" data-html="true" data-content="
+
+
+<div class='container-fluid'><div class='row'><div class='col'> <br>Offres et tarifs
+        <br>Comparateur d’envoi
+        <br>Grilles tarifaires (PDF)
+
+    <br>Localiser
+        <br>Trouver un bureau de poste
+        <br>Points de retrait et dépôt Colissimo
+
+    <br>Adresse, code postal
+        <br>Vérifier une adresse
+        <br>Trouver un code postal, une ville</div>
+
+    <div class='col'><br>Livraisons et Retours
+        <br>Suivre un envoi
+        <br>Modifier une livraison
+        <br>Donner procuration à un proche
+        <br>Envoyer un colis depuis sa boîte aux lettres
+        <br>Délais de livraison (international)
+        <br>Retourner un Colissimo chez un e-commerçant</div>
+
+    <div class='col'><br>La Poste vous accompagne
+        <br>Aide et contact
+
+    <br>Services
+        <br>Digiposte
+        <br>Identité Numérique
+        <br>Abonnement Colissimo Pass
+        <br>Veiller sur mes parents
+        <br>Tablette tactile Ardoiz</div></div></div>
+
+"><b>Acces rapides</b><br>Bureau de poste, modifier livraisons
+      </button>
+      <button type="button" class="btn" data-container="#header" data-toggle="popover" data-trigger="click" style="border-top:3px solid yellow;" data-placement="bottom" data-html="true" data-content="
+          <div><%='Particuliers' %></div> 
+          <div> <%='Professionnels'%></div>
+          <div> <%='Entreprises'%></div>
+          <div> <%='Collectionneurs'%></div>">Espaces Particuliers 
+      </button>
+      <div><i class="far fa-shopping-bag"></i></div>
+      <div style="font-color:blue;"><%= "Mail Laposte.net" %><i style="vertical-align:baseline;"class="fas fa-envelope"></i></div>
+      <button data-html="true" type="button" title="" class="btn" data-container="#header" data-trigger="click" data-toggle="popover" data-placement="bottom" data-content="<div class='container-fluid'>
+
+    <div class='row'><div class='col'><br>La Banque Postale
+
+    <br>Banque et citoyenne
+    <br>Banque Postale
+    <br>La Poste Mobile
+
+    <br>Notre opérateur téléphonique
+    <br>La Poste Mobile
+    <br>Chronopost
+
+    <br>Livraison Express de colis
+    <br>Chronopost
+    <br>DPD
+
+    <br>Livraison Rapide de Colis
+    <br>DPD
+    <br>Asendia
+
+    <br>Nos solutions pour les entreprises
+    <br>Asendia</div>
+
+    <div class='col'><br>Le Groupe La Poste
+
+    <br>Site institutionnel
+    <br>Le Groupe La Poste
+    <br>Espace recrutement La Poste
+
+    <br>Nos offres d'emploi
+    <br>Le groupe La Poste
+    <br>Docaposte
+
+    <br>Gérer la transition numérique et mobile
+    <br>Docaposte
+    <br>Viapost
+
+    <br>Transport et logistique
+    <br>Viapost
+    <br>Mediapost
+
+    <br>Notre expertise en marketing relationnel
+    <br>Mediapost</div></div>
+
+</div>">
+        Le Groupe 
+      </button>   
+    </div>
+    <div id="sidebar">
+      sidebar
+      <div id="sidebar-header">
+        <%= image_tag "logo_laposte.png", class:"logo"%>
+        <p></p>
+      </div>
+      <div id="searchbar">
+        <%= image_tag "search_icon.png", class:"logo" %>
+      </div>
+      <div id="send">
+        <%= image_tag "paper_plane_3.png", class:"logo" %>
+        <p><%="ENVOYER"%></p>
+      </div>
+      <div id="follow-delivery">
+        <%= image_tag "open_cardbox.png", class:"logo" %>
+        <p><%="SUIVRE UN ENVOI"%></p>
+      </div>
+      <div id="all-our-products">
+        <%= image_tag "basket.png", class:"logo" %>
+        <p><%="TOUS NOS PRODUITS"%></p>
+      </div>
+      <div id="new-services">
+        <%= image_tag "two_people_icon.png", class:"logo" %> 
+        <p><%="NOUVEAUX SERVICES"%></p>
+      </div>
+      <div id="our-brands">
+        <%= image_tag "our_brands_icon.png", class:"logo" %>
+        <p><%="NOS MARQUES"%></p>
+      </div> 
+    </div>
+    <div class="post">
+    </div>
+    <div class="post">
+    </div>
+    <div id="footer">
+      <div id="social-media">
+        <div id="footer2">
+          footer2
+        </div>
+        <div id="facebook">
+          facebook
+        </div>
+        <div id="twitter">
+          twitter
+        </div>
+        <div id="youtube">
+          youtube
+        </div>
+        <div id="instagram">
+          instagram
+        </div>
+        <div id="stay-informed">
+          restez informes
+        </div>
+      </div>
+      <div id="clickable-links">
+        <div id="products-and-services">
+          Vos produits et services
+        </div>
+        <div id="deliveries-comparator">
+          Comparateur d'envoi
+        </div>
+        <div id="know-us-better">
+          Mieux nous connaitre
+        </div>
+      </div>
+      <div id="mobile-applications">
+        Nos applications mobiles
+        <div id="app-samples">
+          <div><div style="height:50px;width:50px;"></div><div style="height:20px;width:50px;"></div></div>
+          <div><div style="height:50px;width:50px;"></div><div style="height:20px;width:50px;"></div></div> 
+          <div><div style="height:50px;width:50px;"></div><div style="height:20px;width:50px;"></div></div>
+          <div><div style="height:50px;width:50px;"></div><div style="height:20px;width:50px;"></div></div>
+          <div><div style="height:50px;width:50px;"></div><div style="height:20px;width:50px;"></div></div>
+          <div><div style="height:50px;width:50px;"></div><div style="height:20px;width:50px;"></div></div>
+        </div>
+      </div>
+    </div>
+    <!--<div style="left:0;right:0;top:0;display:flex;"><div style="display:flex;width:100px;height:500px;top:0;left:0;border:1px solid black;"></div><div style="display:flex;height:750px;width:100%;border:1px solid black;"></div></div>
+    <div style="display:flex;left:0;top:0;right:0;"><div style="display:flex;width:100px;height:500px;top:0;left:0;border:1px solid black;"></div><div style="display:flex;width:100%;height:100px;border:1px solid black;"></div></div>-->
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="/home/marie/local_repo_rails_app/app/assets/javascripts/home.js"></script>-->
+    <!--<script type='text/javascript' src="/home/marie/local_repo_rails_app/assets/javascripts/home.js"></script> -->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+    <script src="popper.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+  </body>
+</html>

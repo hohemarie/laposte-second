@@ -1,0 +1,2 @@
+class SpecialDelivery < ApplicationRecord
+end
