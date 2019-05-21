@@ -74,10 +74,10 @@ ActiveRecord::Schema.define(version: 2019_04_27_150130) do
   end
 
   create_table "tabs", force: :cascade do |t|
-    t.string "class_of_item"
+    t.string "title"
+    t.string "class"
     t.integer "line"
     t.integer "column"
-    t.string "title"
   end
 
   create_table "useful_links", force: :cascade do |t|
