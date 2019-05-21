@@ -1,0 +1,108 @@
+diff --git a/Cakefile.js b/Cakefile.js
+index d2dfebb..e37d038 100644
+--- a/Cakefile.js
++++ b/Cakefile.js
+@@ -23,13 +23,12 @@ const glob = require('glob');
+ const path = require('path');
+ const browserify = require('browserify');
+ const CoffeeScript = require('coffeescript');
+-const { exec } = require('child_process');
++const { exec, execSync } = require('child_process');
+
+ const copySync = (src, dest) => fs.writeFileSync(dest, fs.readFileSync(src));
+
+ const coffeeSync = function (input, output) {
+-    const coffee = fs.readFileSync(input).toString();
+-    return fs.writeFileSync(output, CoffeeScript.compile(coffee));
++    execSync(`./node_modules/.bin/babel ${input} --out-file ${output}`);
+ };
+
+ task('compile', 'Compile Coffeelint', () => {
+@@ -40,16 +39,16 @@ task('compile', 'Compile Coffeelint', () => {
+ });
+
+ task('compile:commandline', 'Compiles commandline.js', () => {
+-    coffeeSync('src/commandline.coffee', 'lib/commandline.js');
+-    coffeeSync('src/configfinder.coffee', 'lib/configfinder.js');
+-    coffeeSync('src/cache.coffee', 'lib/cache.js');
+-    coffeeSync('src/ruleLoader.coffee', 'lib/ruleLoader.js');
++    coffeeSync('src/commandline.js', 'lib/commandline.js');
++    coffeeSync('src/configfinder.js', 'lib/configfinder.js');
++    coffeeSync('src/cache.js', 'lib/cache.js');
++    coffeeSync('src/ruleLoader.js', 'lib/ruleLoader.js');
+     if (!fs.existsSync('lib/reporters')) { fs.mkdirSync('lib/reporters'); }
+     return (() => {
+         const result = [];
+-        for (const src of Array.from(glob.sync('reporters/*.coffee', { cwd: 'src' }))) {
++        for (const src of Array.from(glob.sync('reporters/*.js', { cwd: 'src' }))) {
+         // Slice the "coffee" extension of the end and replace with js
+-            const dest = `${src.slice(0, -6)}js`;
++            const dest = src;
+             result.push(coffeeSync(`src/${src}`, `lib/${dest}`));
+         }
+         return result;
+@@ -60,8 +59,9 @@ task('compile:browserify', 'Uses browserify to compile coffeelint', () => {
+     const opts =
+         { standalone: 'coffeelint' };
+     const b = browserify(opts);
+-    b.add(['./src/coffeelint.coffee']);
++    b.add(['./src/coffeelint.js']);
+     b.transform(require('coffeeify'));
++    b.transform(require('babelify'));
+     return b.bundle().pipe(fs.createWriteStream('lib/coffeelint.js'));
+ });
+
+diff --git a/bin/coffeelint b/bin/coffeelint
+index 3148fdc..56c21cd 100755
+--- a/bin/coffeelint
++++ b/bin/coffeelint
+@@ -19,6 +19,7 @@ var thisdir = path.dirname(fs.realpathSync(__filename));
+ // I use this so vim runs the newest code while I work on CoffeeLint. -Asa
+ commandline = path.join(thisdir, '..', "lib", "commandline.js");
+ if (!existsFn(commandline)) {
++    require('babel-register');
+     require('coffee-script/register');
+     require('../src/commandline');
+ } else {
+diff --git a/package.json b/package.json
+index 7e99fc0..ba6cac1 100644
+--- a/package.json
++++ b/package.json
+@@ -46,17 +46,17 @@
+   },
+   "license": "MIT",
+   "scripts": {
+-    "pretest": "cake compile",
+-    "test": "./vowsrunner.js --spec test/*.coffee test/*.litcoffee",
++    "pretest": "js-cake compile",
++    "test": "./vowsrunner.js --spec test/*.js test/*.litcoffee",
+     "testrule": "npm run compile && ./vowsrunner.js --spec",
+     "posttest": "npm run lint",
+-    "prepublish": "cake prepublish",
+-    "postpublish": "cake postpublish",
+-    "publish": "cake publish",
+-    "install": "cake install",
+-    "lint": "cake compile && ./bin/coffeelint .",
+-    "lint-csv": "cake compile && ./bin/coffeelint --csv .",
+-    "lint-jslint": "cake compile && ./bin/coffeelint --jslint .",
+-    "compile": "cake compile"
++    "prepublish": "js-cake prepublish",
++    "postpublish": "js-cake postpublish",
++    "publish": "js-cake publish",
++    "install": "js-cake install",
++    "lint": "js-cake compile && ./bin/coffeelint .",
++    "lint-csv": "js-cake compile && ./bin/coffeelint --csv .",
++    "lint-jslint": "js-cake compile && ./bin/coffeelint --jslint .",
++    "compile": "js-cake compile"
+   }
+ }
+diff --git a/vowsrunner.js b/vowsrunner.js
+index c4916f5..2de7dce 100755
+--- a/vowsrunner.js
++++ b/vowsrunner.js
+@@ -1,4 +1,5 @@
+ #!/usr/bin/env node
++require('babel-register')
+ require('coffeescript/register')
+ require('./node_modules/vows/bin/vows')
+

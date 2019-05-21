@@ -5,6 +5,8 @@ group :development do
   gem 'guard-coffeescript'
 end
 #gem 'font-awesome-sass'
+gem "react_on_rails", "~> 6"
+gem 'react-rails'
 ruby '2.6.1'
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

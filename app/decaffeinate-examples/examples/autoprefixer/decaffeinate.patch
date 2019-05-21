@@ -1,0 +1,43 @@
+diff --git c/gulpfile.js w/gulpfile.js
+index c775c97..ec8d3f9 100644
+--- c/gulpfile.js
++++ w/gulpfile.js
+@@ -1,3 +1,4 @@
++/* eslint-disable */
+ var gulp = require('gulp');
+ var path = require('path');
+ var fs   = require('fs-extra');
+@@ -11,7 +12,7 @@ gulp.task('clean', function (done) {
+ gulp.task('build:lib', ['clean'], function () {
+     var coffee = require('gulp-coffee');
+
+-    return gulp.src(['{lib,data}/**/*.coffee'])
++    return gulp.src(['{lib,data}/**/*.js'])
+         .pipe(coffee())
+         .pipe(gulp.dest('build/'));
+ });
+@@ -83,9 +84,10 @@ gulp.task('lint', function () {
+ gulp.task('test', function () {
+     require('coffee-script').register();
+     require('should');
++    require('babel-register');
+
+     var mocha = require('gulp-mocha');
+-    return gulp.src('test/*.coffee', { read: false }).pipe(mocha());
++    return gulp.src('test/*.js', { read: false }).pipe(mocha({ timeout: 10000 }));
+ });
+
+ gulp.task('default', ['lint', 'test']);
+diff --git c/package.json w/package.json
+index 2d253c0..b10a354 100644
+--- c/package.json
++++ w/package.json
+@@ -43,7 +43,7 @@
+     "vinyl-source-stream": "^1.1.0"
+   },
+   "scripts": {
+-    "test": "gulp"
++    "test": "gulp test"
+   },
+   "eslintConfig": {
+     "extends": "eslint-config-postcss/es5"

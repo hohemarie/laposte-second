@@ -1,0 +1,140 @@
+diff --git a/.babelrc b/.babelrc
+index 164185f..3902954 100644
+--- a/.babelrc
++++ b/.babelrc
+@@ -3,5 +3,9 @@
+   "plugins": ["transform-remove-strict-mode"],
+   "parserOpts": {
+     "allowReturnOutsideFunction": true
+-  }
++  },
++  "ignore": [
++    "./bower_components/**/*.js",
++    "./vendor/**/*.js"
++  ]
+ }
+diff --git a/app/app.js b/app/app.js
+index 90066c7..3dd1319 100644
+--- a/app/app.js
++++ b/app/app.js
+@@ -2,6 +2,7 @@ global.$ = window.$ = global.jQuery = window.jQuery = require('jquery');
+ import 'bootstrap'
+ import './app.sass'
+
++require('babel-polyfill')
+ require('app/vendor.js')
+
+ // require.context('app/schemas', true, /.*\.(coffee|jade)/)
+diff --git a/app/assets/javascripts/run-tests.js b/app/assets/javascripts/run-tests.js
+index 953f67e..d6a69d7 100644
+--- a/app/assets/javascripts/run-tests.js
++++ b/app/assets/javascripts/run-tests.js
+@@ -1,5 +1,6 @@
+ // Helper for running tests through Karma.
+ // Hooks into the test view logic for running tests.
++require('babel-polyfill')
+ require('app/app.js')
+
+ window.userObject = {_id:'1'};
+diff --git a/index.js b/index.js
+index 3abc77f..71f6d4a 100644
+--- a/index.js
++++ b/index.js
+@@ -8,5 +8,7 @@ if (majorVersion === 4) {
+ }
+ require('coffee-script');
+ require('coffee-script/register');
++require('babel-register');
++require('babel-polyfill');
+ var server = require('./server');
+ server.startServer();
+diff --git a/karma.conf.js b/karma.conf.js
+index e008887..d10ebdf 100644
+--- a/karma.conf.js
++++ b/karma.conf.js
+@@ -60,7 +60,7 @@ module.exports = function(config) {
+     browsers : ['Firefox'],
+
+     // If browser does not capture in given timeout [ms], kill it
+-    captureTimeout : 15000,
++    captureTimeout : 30000,
+
+     transports: ['polling'],
+
+diff --git a/package.json b/package.json
+index 1eb97af..67ddfa6 100644
+--- a/package.json
++++ b/package.json
+@@ -33,7 +33,6 @@
+     "test": "./node_modules/.bin/karma start",
+     "predeploy": "echo Starting deployment--hold onto your butts.; echo Skipping webpack build --production",
+     "postdeploy": "echo Deployed. Unclench.",
+-    "postinstall": "bower install && webpack",
+     "webpack": "webpack",
+     "bower": "bower",
+     "dev": "webpack --watch & npm run nodemon",
+diff --git a/spec/helpers/helper.js b/spec/helpers/helper.js
+index fb5e780..194abd6 100644
+--- a/spec/helpers/helper.js
++++ b/spec/helpers/helper.js
+@@ -2,6 +2,8 @@ var _ = require('lodash');
+
+ require('coffee-script');
+ require('coffee-script/register');
++require('babel-register');
++require("babel-polyfill");
+
+ var oldIt = global.it;
+ global.it = function(description, testFn) {
+@@ -44,7 +46,7 @@ if (database.generateMongoConnectionString() !== dbString) {
+   throw Error('Stopping server tests because db connection string was not as expected.');
+ }
+
+-jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000 * 15; // for long Stripe tests
++jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000 * 60; // for long Stripe tests
+ require('../server/common'); // Make sure global testing functions are set up
+
+ // Ignore Stripe/Nocking erroring
+diff --git a/webpack.base.config.js b/webpack.base.config.js
+index 192f8de..c345e98 100644
+--- a/webpack.base.config.js
++++ b/webpack.base.config.js
+@@ -8,6 +8,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
+ const glob = require('glob')
+ require('coffee-script');
+ require('coffee-script/register');
++require('babel-register');
++require('babel-polyfill');
+ const CompileStaticTemplatesPlugin = require('./compile-static-templates');
+
+ console.log("Starting Webpack...");
+@@ -22,8 +24,8 @@ module.exports = (env) => {
+       app: './app/app.js',
+       world: glob.sync('./app/lib/world/**/*.*').concat([ // For worker_world
+         './app/lib/worldLoader',
+-        './app/core/CocoClass.coffee',
+-        './app/core/utils.coffee',
++        './app/core/CocoClass.js',
++        './app/core/utils.js',
+         './vendor/scripts/string_score.js',
+         './bower_components/underscore.string',
+         './vendor/scripts/coffeescript.js',
+@@ -54,6 +56,9 @@ module.exports = (env) => {
+         { test: /\.coffee$/, use: [
+           { loader: 'coffee-loader' },
+         ] },
++        { test: /\.js$/, exclude: /node_modules|dynamicRequire\.js/, use: [
++            { loader: 'babel-loader' },
++          ] },
+         { test: /\.jade$/, use: { loader: 'jade-loader', options: { root: path.resolve('./app') } } },
+         { test: /\.pug$/, use: { loader: 'jade-loader', options: { root: path.resolve('./app') } } },
+         {
+@@ -141,7 +146,7 @@ module.exports = (env) => {
+           from: 'bower_components/esper.js/esper.js',
+           to: 'javascripts/esper.js'
+         },{
+-          from: 'bower_components/esper.js/esper-modern.js',
++          from: 'bower_components/esper.js/esper.modern.js',
+           to: 'javascripts/esper.modern.js'
+         },{ // Aether
+           from: 'bower_components/aether/build/coffeescript.js',

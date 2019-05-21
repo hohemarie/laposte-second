@@ -12,5 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 
+import React from "react";
+import { render } from "react-dom";
+import injectSheet, { jss, ThemeProvider } from "react-jss";

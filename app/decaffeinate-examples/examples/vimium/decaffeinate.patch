@@ -1,0 +1,73 @@
+diff --git a/Cakefile.js b/Cakefile.js
+index 32da02e..a6c01ce 100644
+--- a/Cakefile.js
++++ b/Cakefile.js
+@@ -80,8 +80,17 @@ var visitDirectory = (directory, visitor) =>
+     return visitor(filepath);
+   });
+ task('build', 'compile all coffeescript files to javascript', () => {
+-  const coffee = spawn('coffee', ['-c', __dirname]);
+-  return coffee.on('exit', returnCode => process.exit(returnCode));
++  const stdout = child_process.execSync('./node_modules/.bin/babel src -d .');
++  for (let line of stdout.toString().split('\n')) {
++    line = line.trim();
++    if (line) {
++      const outPath = line.split(' ')[2];
++      console.log(`Fixing file ${outPath}`);
++      let contents = fs.readFileSync(outPath);
++      contents = `;(function() {\n${contents};\n})();`;
++      fs.writeFileSync(outPath, contents);
++    }
++  }
+ });
+
+ task('clean', 'removes any js files which were compiled from coffeescript', () =>
+diff --git a/pages/hud.html b/pages/hud.html
+index 3e8cf97..18e81d1 100644
+--- a/pages/hud.html
++++ b/pages/hud.html
+@@ -2,6 +2,7 @@
+   <head>
+     <title>HUD</title>
+     <link rel="stylesheet" type="text/css" href="../content_scripts/vimium.css" />
++    <script type="text/javascript" src="../node_modules/babel-polyfill/dist/polyfill.js"></script>
+     <script type="text/javascript" src="../lib/utils.js"></script>
+     <script type="text/javascript" src="../lib/dom_utils.js"></script>
+     <script type="text/javascript" src="../lib/settings.js"></script>
+diff --git a/pages/vomnibar.html b/pages/vomnibar.html
+index 19736d7..79f5fdc 100644
+--- a/pages/vomnibar.html
++++ b/pages/vomnibar.html
+@@ -1,6 +1,7 @@
+ <html>
+   <head>
+     <title>Vomnibar</title>
++    <script type="text/javascript" src="../node_modules/babel-polyfill/dist/polyfill.js"></script>
+     <script type="text/javascript" src="../lib/utils.js"></script>
+     <script type="text/javascript" src="../lib/settings.js"></script>
+     <script type="text/javascript" src="../lib/keyboard_utils.js"></script>
+diff --git a/src/tests/unit_tests/commands_test.js b/src/tests/unit_tests/commands_test.js
+index 93a7443..f43706b 100644
+--- a/src/tests/unit_tests/commands_test.js
++++ b/src/tests/unit_tests/commands_test.js
+@@ -32,7 +32,7 @@ global.Settings = { postUpdateHooks: {}, get() { return ''; }, set() {} };
+ const { Commands } = require('../../background_scripts/commands.js');
+
+ // Include mode_normal to check that all commands have been implemented.
+-global.KeyHandlerMode = (global.Mode = {});
++global.KeyHandlerMode = (global.Mode = class {});
+ global.KeyboardUtils = { platform: '' };
+ extend(global, require('../../content_scripts/link_hints.js'));
+ extend(global, require('../../content_scripts/marks.js'));
+diff --git a/tests/dom_tests/dom_tests.html b/tests/dom_tests/dom_tests.html
+index 37cd43e..11da579 100644
+--- a/tests/dom_tests/dom_tests.html
++++ b/tests/dom_tests/dom_tests.html
+@@ -29,6 +29,7 @@
+     <link rel="stylesheet" type="text/css" href="../../content_scripts/vimium.css" />
+     <script type="text/javascript" src="bind.js"></script>
+     <script type="text/javascript" src="chrome.js"></script>
++    <script type="text/javascript" src="../../node_modules/babel-polyfill/dist/polyfill.js"></script>
+     <script type="text/javascript" src="../../lib/utils.js"></script>
+     <script type="text/javascript" src="../../lib/keyboard_utils.js"></script>
+     <script type="text/javascript" src="../../lib/dom_utils.js"></script>
