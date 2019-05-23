@@ -1,3 +1,5 @@
+//= require webpack-bundle
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -16,7 +18,7 @@
 //= require react_ujs
 //= require components
 //= require_tree .
-
+import "/home/marie/local_repo_rails_app_laposte_website/app/assets/stylesheets/application.scss"
 import React from "react";
 import { render } from "react-dom";
 import injectSheet, { jss, ThemeProvider } from "react-jss";

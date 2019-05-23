@@ -6,6 +6,7 @@ group :development do
 end
 #gem 'font-awesome-sass'
 gem "react_on_rails", "~> 6"
+gem 'webpacker', '~> 4.x'
 gem 'react-rails'
 ruby '2.6.1'
 gem 'jquery-rails'
@@ -20,8 +21,8 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
-
+gem 'mini_racer', platforms: :ruby
+gem 'libv8','5.0.71.48.1beta2'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -66,3 +67,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'mini_racer', platforms: :ruby

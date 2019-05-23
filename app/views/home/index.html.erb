@@ -51,7 +51,7 @@
       </div>
     </div>
     <div style="border:10px solid purple; width 10px;height:10px;top:200px;left:200px;" id="root">some text inside the div</div>
-    <div style="border:10px solid blue; width 10px;height:10px;top:200px;left:200px;"><%= react_component('HelloMessage', name: 'John') %></div>
+    <div style="border:10px solid blue; width 10px;height:10px;top:200px;left:200px;"><%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %><%= react_component("HelloWorldApp", props: {name: 'John'}) %><%= react_component('HelloMessage', name: 'John') %></div>
     <div id="header">
       
       <button type="button" class="btn" data-container="#header" data-toggle="popover" data-trigger="click" style="border-top:3px solid yellow;" data-placement="bottom" data-html="true" data-content="
@@ -68,8 +68,7 @@
     <br>Adresse, code postal
         <br>Vérifier une adresse
         <br>Trouver un code postal, une ville</div>
-
-    <div class='col'><br>Livraisons et Retours
+<div class='col'><br>Livraisons et Retours
         <br>Suivre un envoi
         <br>Modifier une livraison
         <br>Donner procuration à un proche
