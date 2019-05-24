@@ -15,7 +15,7 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 // require_tree ../components/
-console.log('Hello World from Webpacker')
+console.log('Hello World from Webpacker');
 // Support component names relative to this directory:
 var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
@@ -26,5 +26,8 @@ import Search from '../components/Search';
 ReactOnRails.register({
   Search
 });
-console.log('Hello World from Webpacker')
 // Support component names relative to this directory:
+var myCustomContext = require.context("custom_components", true)
+var ReactRailsUJS = require("react_ujs")
+// use `custom_components/` for <%= react_component(...) %> calls
+ReactRailsUJS.useContext(myCustomContext)
