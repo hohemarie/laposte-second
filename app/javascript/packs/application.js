@@ -14,9 +14,17 @@
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
+// require_tree ../components/
 console.log('Hello World from Webpacker')
 // Support component names relative to this directory:
 var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
+import ReactOnRails from 'react-on-rails';
+import Search from '../components/Search';
+
+ReactOnRails.register({
+  Search
+});
+console.log('Hello World from Webpacker')
+// Support component names relative to this directory:
